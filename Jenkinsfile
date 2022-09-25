@@ -33,7 +33,7 @@ pipeline {
                 sh 'docker ps -f name=blooming-web-container -q | xargs --no-run-if-empty docker container stop'
                 sh 'docker container ls -a -fname=blooming-web-container -q | xargs -r docker container rm'
                 sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
-                sh 'docker run -d --name blooming-web-container -p 8090:80 blooming-web-image:latest'
+                sh 'docker run -d --name blooming-web-container -p 80:80 blooming-web-image:latest'
                 
             }
         }
