@@ -17,30 +17,6 @@ function Copyright() {
   );
 }
 
-const iconStyle = {
-  width: 48,
-  height: 48,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: 'warning.main',
-  mr: 1,
-  '&:hover': {
-    bgcolor: 'warning.dark',
-  },
-};
-
-const LANGUAGES = [
-  {
-    code: 'en-US',
-    name: 'English',
-  },
-  {
-    code: 'fr-FR',
-    name: 'Français',
-  },
-];
-
 export default function AppFooter() {
   return (
     <Typography
@@ -69,24 +45,14 @@ export default function AppFooter() {
             </Box>
           </Grid>
           <Grid item>
-            <Typography variant="caption">
-              {'Icons made by '}
-              <Link href="https://www.freepik.com" rel="sponsored" title="Freepik">
-                Freepik
-              </Link>
-              {' from '}
-              <Link href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
-                www.flaticon.com
-              </Link>
-              {' is licensed by '}
-              <Link
-                href="https://creativecommons.org/licenses/by/3.0/"
-                title="Creative Commons BY 3.0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                CC 3.0 BY
-              </Link>
+            <Typography variant="body1">
+              린랩 | 서울특별시 서대문구 신촌로25, 2층 3688호 | 대표이사 : 이태린
+            </Typography>
+            <Typography variant="body1">
+              사업자등록번호 : 731-08-02170
+            </Typography>
+            <Typography variant="body1">
+              문의전화 : 070-8984-3550(이메일 고객센터만 운영) | 이메일 : help@ublooming.co.kr
             </Typography>
           </Grid>
         </Grid>
