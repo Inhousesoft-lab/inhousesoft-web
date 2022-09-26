@@ -1,18 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import AppFooter from './modules/views/AppFooter';
+import ProductHero from './modules/views/ProductHero';
+import ProductHowItWorks from './modules/views/ProductHowItWorks';
+import AppAppBar from './modules/views/AppAppBar';
+import withRoot from './modules/withRoot';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        연애를 꿈꾸는 당신을 위한 소개팅 서비스
-        </p>
-        <p>BLOOMING</p>
-      </header>
-    </div>
+    <React.Fragment>
+      <AppAppBar />
+      <ProductHero />
+      <ProductHowItWorks />
+      <AppFooter />
+    </React.Fragment>
   );
 }
 
-export default App;
+export default withRoot(App);
