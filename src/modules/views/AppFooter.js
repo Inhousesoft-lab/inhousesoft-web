@@ -34,10 +34,10 @@ export default function AppFooter() {
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="https://www.notion.so/6481b4b6dbf2477ca4d32ec6b63558e4" target="_blank">이용약관</Link>
+                <Link href="https://suave-loaf-1da.notion.site/6481b4b6dbf2477ca4d32ec6b63558e4" target="_blank">이용약관</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="https://www.notion.so/af16e1e2662e446b88327e70c287775b" target="_blank">개인정보 처리방침</Link>
+                <Link href="https://suave-loaf-1da.notion.site/af16e1e2662e446b88327e70c287775b" target="_blank">개인정보 처리방침</Link>
               </Box>
             </Box>
           </Grid>
