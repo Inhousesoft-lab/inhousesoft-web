@@ -39,9 +39,6 @@ export default function AppFooter() {
               <Box component="li" sx={{ py: 0.5 }}>
                 <Link href="#">개인정보 처리방침</Link>
               </Box>
-              <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="#">청소년보호정책</Link>
-              </Box>
             </Box>
           </Grid>
           <Grid item>
