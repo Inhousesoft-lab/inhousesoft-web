@@ -30,13 +30,10 @@ class Hero extends React.Component {
                 <Row>
                   <Col className="justify-content-center text-center">
                     <h1 className="display-3 text-white">
-                      A beautiful Design System{" "}
-                      <span>completed with examples</span>
+                      간편하고 최적의 웹사이트 개발{" "}
                     </h1>
                     <p className="lead text-white">
-                      The design system comes with four pre-built pages to
-                      help you get started faster. You can change the text and
-                      images and you're good to go.
+                      스타트업을 위한 합리적인 가격의 플랫폼 개발! 린랩과 함께 알아가 볼까요?
                     </p>
                   </Col>
                 </Row>
