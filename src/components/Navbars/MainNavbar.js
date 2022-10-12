@@ -61,9 +61,6 @@ class MainNavbar extends React.Component {
                   src={require("assets/img/brand/argon-react-white.png")}
                 />
               </NavbarBrand>
-              <button className="navbar-toggler" id="navbar_global">
-                <span className="navbar-toggler-icon" />
-              </button>
               <Button
                 className="btn-neutral btn-icon"
                 color="default"
