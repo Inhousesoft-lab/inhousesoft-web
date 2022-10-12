@@ -28,19 +28,6 @@ export default function AppFooter() {
           <Grid item xs={6} sm={4} md={3}>
             <Copyright />
           </Grid>
-          <Grid item xs={6} sm={4} md={2}>
-            <Typography variant="h6" marked="left" gutterBottom>
-              Legal
-            </Typography>
-            <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
-              <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="https://suave-loaf-1da.notion.site/6481b4b6dbf2477ca4d32ec6b63558e4" target="_blank">이용약관</Link>
-              </Box>
-              <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="https://suave-loaf-1da.notion.site/af16e1e2662e446b88327e70c287775b" target="_blank">개인정보 처리방침</Link>
-              </Box>
-            </Box>
-          </Grid>
           <Grid item>
             <Typography variant="body1">
               린랩 | 서울특별시 서대문구 신촌로25, 2층 3688호 | 대표이사 : 이태린
@@ -49,7 +36,7 @@ export default function AppFooter() {
               사업자등록번호 : 731-08-02170
             </Typography>
             <Typography variant="body1">
-              문의전화 : 070-8984-3550(이메일 고객센터만 운영) | 이메일 : help@ublooming.co.kr
+              문의전화 : 070-8984-3550(이메일 고객센터만 운영) | 이메일 : help@ulynlab.kr
             </Typography>
           </Grid>
         </Grid>

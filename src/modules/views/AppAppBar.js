@@ -9,7 +9,7 @@ function AppAppBar() {
       <AppBar position="fixed">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Typography variant="h6" sx={{ fontSize: 24 }}>
-            Blooming
+            Lynlab
           </Typography>
         </Toolbar>
       </AppBar>
