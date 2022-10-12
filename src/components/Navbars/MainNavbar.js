@@ -63,7 +63,7 @@ class MainNavbar extends React.Component {
               <Button
                 className="btn-neutral btn-icon"
                 color="default"
-                href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-navbar"
+                href="mailto:lynlab@lynlab.kr"
                 target="_blank"
               >
                 <span className="nav-link-inner--text ml-1">
