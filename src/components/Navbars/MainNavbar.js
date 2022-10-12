@@ -56,10 +56,9 @@ class MainNavbar extends React.Component {
           >
             <Container>
               <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
-                <img
-                  alt="..."
-                  src={require("assets/img/brand/argon-react-white.png")}
-                />
+                <h2 className="text-white">
+                  LYNLAB
+                </h2>
               </NavbarBrand>
               <Button
                 className="btn-neutral btn-icon"
