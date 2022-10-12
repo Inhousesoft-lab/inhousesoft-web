@@ -24,16 +24,16 @@ pipeline {
         stage('Docker build') {
             agent any
             steps {
-                sh 'docker build -t blooming-web-image:latest .'
+                sh 'docker build -t lynlab-web-image:latest .'
             }
         }
         stage('Docker run') {
             agent any
             steps {
-                sh 'docker ps -f name=blooming-web-container -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -fname=blooming-web-container -q | xargs -r docker container rm'
+                sh 'docker ps -f name=lynlab-web-container -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=lynlab-web-container -q | xargs -r docker container rm'
                 sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
-                sh 'docker run -d --name blooming-web-container -p 80:80 blooming-web-image:latest'
+                sh 'docker run -d --name lynlab-web-container -p 80:80 lynlab-web-image:latest'
                 
             }
         }
