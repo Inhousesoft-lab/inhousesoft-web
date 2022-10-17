@@ -11,14 +11,12 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'node:16-alpine'
+                    image 'node:18-alpine'
                     args '-u root:root'
                 }
             }
             options { skipDefaultCheckout(false) }
             steps {
-                sh 'npm cache clean –force'
-                sh 'npm cache verify'
                 sh 'npm install -f'
                 sh 'npm run build'
             }
