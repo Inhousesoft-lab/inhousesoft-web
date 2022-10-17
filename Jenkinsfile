@@ -17,7 +17,9 @@ pipeline {
             }
             options { skipDefaultCheckout(false) }
             steps {
-                sh 'sudo npm install -f'
+                sh 'npm cache clean –force'
+                sh 'npm cache verify'
+                sh 'npm install -f'
                 sh 'npm run build'
             }
         }
