@@ -5,21 +5,9 @@ import Headroom from "headroom.js";
 // reactstrap components
 import {
   Button,
-  UncontrolledCollapse,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-  UncontrolledDropdown,
-  Media,
   NavbarBrand,
   Navbar,
-  NavItem,
-  NavLink,
-  Nav,
   Container,
-  Row,
-  Col,
-  UncontrolledTooltip
 } from "reactstrap";
 
 class MainNavbar extends React.Component {
@@ -54,7 +42,7 @@ class MainNavbar extends React.Component {
             expand="lg"
             id="navbar-main"
           >
-            <Container>
+            <Container className="d-flex justify-content-between">
               <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
                 <h2 className="text-white">
                   LYNLAB
@@ -65,6 +53,7 @@ class MainNavbar extends React.Component {
                 color="default"
                 href="mailto:lynlab@lynlab.kr"
                 target="_blank"
+                style={{ height: '43px' }}
               >
                 <span className="nav-link-inner--text ml-1">
                   문의하기
