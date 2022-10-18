@@ -17,7 +17,7 @@ pipeline {
             }
             options { skipDefaultCheckout(false) }
             steps {
-                sh 'sudo npm install -f'
+                sh 'npm install -f'
                 sh 'npm run build'
             }
         }
