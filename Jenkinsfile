@@ -17,7 +17,7 @@ pipeline {
             }
             options { skipDefaultCheckout(false) }
             steps {
-                sh 'npm install -f'
+                sh 'npm install'
                 sh 'npm run build'
             }
         }
