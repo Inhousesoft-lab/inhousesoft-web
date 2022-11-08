@@ -16,7 +16,7 @@ class Banner extends React.Component {
       <>
         <section className="section section-lg pt-0">
           <Container>
-            <Card className="bg-gradient-warning shadow-lg border-0">
+            <Card className="bg-gradient-default shadow-lg border-0">
               <div className="p-5">
                 <Row className="align-items-center">
                   <Col lg="8">
