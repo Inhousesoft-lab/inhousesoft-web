@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'node:16-alpine'
+                    image 'node:18.18-alpine'
                     args '-u root:root'
                 }
             }
@@ -24,16 +24,16 @@ pipeline {
         stage('Docker build') {
             agent any
             steps {
-                sh 'docker build -t lynlab-web-image:latest .'
+                sh 'docker build -t inhouse-web-image:latest .'
             }
         }
         stage('Docker run') {
             agent any
             steps {
-                sh 'docker ps -f name=lynlab-web-container -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -fname=lynlab-web-container -q | xargs -r docker container rm'
+                sh 'docker ps -f name=inhousesoft -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=inhousesoft -q | xargs -r docker container rm'
                 sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
-                sh 'docker run -d -e VIRTUAL_HOST=www.lynlab.kr --name lynlab-web-container lynlab-web-image:latest'
+                sh 'docker run -d --network=blooming_network -e VIRTUAL_HOST=api.ublooming.co.kr --name inhousesoft inhouse-web-image:latest'
                 
             }
         }
