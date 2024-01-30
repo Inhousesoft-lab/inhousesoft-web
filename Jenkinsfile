@@ -33,7 +33,7 @@ pipeline {
                 sh 'docker ps -f name=inhousesoft -q | xargs --no-run-if-empty docker container stop'
                 sh 'docker container ls -a -fname=inhousesoft -q | xargs -r docker container rm'
                 sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
-                sh 'docker run -d --network=blooming_network -e VIRTUAL_HOST=api.ublooming.co.kr --name inhousesoft inhouse-web-image:latest'
+                sh 'docker run -d --network=blooming_network -e VIRTUAL_HOST=www.inhousesoft.co.kr,www.inhousesoft.com --name inhousesoft inhouse-web-image:latest'
                 
             }
         }
