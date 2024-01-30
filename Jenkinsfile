@@ -12,9 +12,9 @@ pipeline {
             agent any
             steps {
                 script {
-                    // Build a Docker image with nginx to serve static content
+                    // Corrected Docker build step
                     sh '''
-                    docker build -t inhouse-web-image:latest - <<EOF
+                    docker build -t inhouse-web-image:latest -f- . <<EOF
                     FROM nginx:alpine
                     COPY index.html /usr/share/nginx/html/index.html
                     EOF
