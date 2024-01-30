@@ -7,34 +7,33 @@ pipeline {
             steps {
                 checkout scm
             }
-        }        
-        stage('Build') {
-            agent {
-                docker {
-                    image 'node:18.18-alpine'
-                    args '-u root:root'
-                }
-            }
-            options { skipDefaultCheckout(false) }
-            steps {
-                sh 'npm install -f'
-                sh 'CI=false npm run build'
-            }
         }
         stage('Docker build') {
             agent any
             steps {
-                sh 'docker build -t inhouse-web-image:latest .'
+                script {
+                    // Build a Docker image with nginx to serve static content
+                    sh '''
+                    docker build -t inhouse-web-image:latest - <<EOF
+                    FROM nginx:alpine
+                    COPY index.html /usr/share/nginx/html/index.html
+                    EOF
+                    '''
+                }
             }
         }
         stage('Docker run') {
             agent any
             steps {
+                // Stop and remove any existing container
                 sh 'docker ps -f name=inhousesoft -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -fname=inhousesoft -q | xargs -r docker container rm'
+                sh 'docker container ls -a -f name=inhousesoft -q | xargs -r docker container rm'
+
+                // Remove unused images
                 sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
-                sh 'docker run -d --network=blooming_network -e VIRTUAL_HOST=api.ublooming.co.kr --name inhousesoft inhouse-web-image:latest'
-                
+
+                // Run the new Docker container
+                sh 'docker run -d --network=blooming_network -e VIRTUAL_HOST=www.inhousesoft.co.kr,www.inhousesoft.com --name inhousesoft inhouse-web-image:latest'
             }
         }
     }
