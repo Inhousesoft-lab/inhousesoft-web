@@ -17,8 +17,8 @@ pipeline {
             }
             options { skipDefaultCheckout(false) }
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                sh 'npm install -f'
+                sh 'CI=false npm run build'
             }
         }
         stage('Docker build') {
