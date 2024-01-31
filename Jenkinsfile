@@ -7,19 +7,6 @@ pipeline {
             steps {
                 checkout scm
             }
-        }        
-        stage('Build') {
-            agent {
-                docker {
-                    image 'node:18.18-alpine'
-                    args '-u root:root'
-                }
-            }
-            options { skipDefaultCheckout(false) }
-            steps {
-                sh 'npm install -f'
-                sh 'CI=false npm run build'
-            }
         }
         stage('Docker build') {
             agent any
@@ -31,10 +18,9 @@ pipeline {
             agent any
             steps {
                 sh 'docker ps -f name=inhousesoft -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -fname=inhousesoft -q | xargs -r docker container rm'
+                sh 'docker container ls -a -f name=inhousesoft -q | xargs -r docker container rm'
                 sh 'docker images --no-trunc --all --quiet --filter="dangling=true" | xargs --no-run-if-empty docker rmi'
                 sh 'docker run -d --network=blooming_network -e VIRTUAL_HOST=www.inhousesoft.co.kr,www.inhousesoft.com --name inhousesoft inhouse-web-image:latest'
-                
             }
         }
     }
