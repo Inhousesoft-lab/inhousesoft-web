@@ -10,7 +10,7 @@ body {
   position: relative;
 }
 .inner {
-  position: relative;
+  position: relative; 
   max-width: 1440px;
   margin: 0 auto;
   padding: 6rem 9rem;
@@ -69,7 +69,12 @@ body {
 .btn-indigo {
   background: #0e2e78;
 }
-
+.subin-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #F6F8FA;
+  box-shadow: 0px 16px 48px 0px #E2E8ED;
+}
 .subin-wrap .visual-info {
   position: relative;
   margin: 0 auto;
@@ -105,13 +110,17 @@ body {
 }
 .subin-wrap .visual-info .visual-wrap {
   position: absolute;
-  top: 1.2rem;
+  top: 1.5rem;
   left: 9rem;
   z-index: 20;
+}
+.subin-wrap .visual-info .visual-wrap .logo {
+  height: 1.5rem;
 }
 .subin-wrap .visual-info .visual-wrap .logo img {
   width: 7.1rem;
   height: 1.5rem;
+  vertical-align: top;
 }
 .subin-wrap .visual-info .visual-wrap .tit {
   display: inline-block;
@@ -139,7 +148,9 @@ body {
   border-radius: 4px;
   color: #fff;
 }
-
+.convenience-info {
+  background: #fff;
+}
 .convenience-info .copy01 {
   margin: 1.2rem 0 0;
 }
@@ -262,7 +273,9 @@ body {
   background: url("../images/icons/airplane_icon.svg") no-repeat center/100%
     100%;
 }
-
+.technologies-info {
+  background: #fff;
+}
 .technologies-info .info-list {
   display: flex;
   flex-wrap: wrap;
@@ -381,16 +394,19 @@ body {
     top: 14px;
     left: 20px;
   }
+  .subin-wrap .visual-info .visual-wrap .logo {
+    height: 20px;
+  }
   .subin-wrap .visual-info .visual-wrap .logo img {
     width: 4.8rem;
     height: 20px;
   }
   .subin-wrap .visual-info .visual-wrap .tit {
-    margin: 5.5rem 0 0 0;
+    margin: 5rem 0 0 0;
     font-size: 1.8rem;
   }
   .subin-wrap .visual-info .visual-wrap .txt {
-    margin: 18px 0 0 0;
+    margin: 15px 0 0 0;
     font-size: 16px;
   }
   .subin-wrap .visual-info .visual-wrap .btn-more {
@@ -410,17 +426,20 @@ body {
   .convenience-info .solution-box [class*="info"] {
     padding: 1.6rem 1.2rem;
     min-width: auto;
+    min-height: 231px;
+    height: 231px;
+    box-sizing: border-box;
   }
   .convenience-info .solution-box [class*="info"]:before {
     width: 2rem;
     height: 2rem;
   }
   .convenience-info .solution-box [class*="info"] .tit {
-    margin: 16px 0 0;
+    margin: 5px 0 0;
     line-height: 1.4rem;
   }
   .convenience-info .solution-box [class*="info"] .txt {
-    margin: 12px 0 0;
+    margin: 7px 0 0;
     line-height: 1.3rem;
   }
 
