@@ -182,11 +182,11 @@ body {
   background: url("../images/icons/bigdata_icon.svg") no-repeat center/100% 100%;
 }
 .convenience-info .solution-box [class*="info"][class*="2"]:before {
-  background: url("../images/icons/prototype_icon.svg") no-repeat center/100%
+  background: url("../images/icons/prototype_icon.png") no-repeat center/100%
     100%;
 }
 .convenience-info .solution-box [class*="info"][class*="3"]:before {
-  background: url("../images/icons/service_icon.svg") no-repeat center/100% 100%;
+  background: url("../images/icons/service_icon.png") no-repeat center/100% 100%;
 }
 .convenience-info .solution-box [class*="info"] .tit {
   display: block;
@@ -433,6 +433,12 @@ body {
   .convenience-info .solution-box [class*="info"]:before {
     width: 2rem;
     height: 2rem;
+  }
+  .convenience-info .solution-box [class*="info"][class*="2"]:before {
+    background: url("../images/icons/prototype_icon_m.png") no-repeat center;background-size: 40px 40px;
+  }
+  .convenience-info .solution-box [class*="info"][class*="3"]:before {
+    background: url("../images/icons/service_icon_m.png") no-repeat center;background-size: 40px 40px;
   }
   .convenience-info .solution-box [class*="info"] .tit {
     margin: 5px 0 0;
