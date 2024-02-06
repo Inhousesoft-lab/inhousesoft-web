@@ -64,7 +64,10 @@ body {
   line-height: 1.4rem;
   letter-spacing: -0.02rem;
 }
-
+/* color */
+.cr-blue {
+  color: #5DB7F7;
+}
 /* button */
 .btn-indigo {
   background: #0e2e78;
@@ -206,7 +209,69 @@ body {
   word-break: break-all;
   letter-spacing: -0.02rem;
 }
-
+.platform-info {
+  background: #fff;
+}
+.platform-info .platform {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 42.3rem;
+  margin: 6rem auto 5rem;
+}
+.platform-info .platform + .platform {
+  margin: 10rem auto 0;
+}
+.platform-info .platform .platform-text{
+  position: relative;
+  width: 14.6rem;
+}
+.platform-info .platform .platform-text .txt-box{
+  padding: 7.5rem 0 0;
+}
+.platform-info .platform .platform-text .txt-box.icon:after {
+  content:'';
+  position: absolute;
+  top: 5rem;
+  right: -2rem;
+  width: 4rem;
+  height: 2.4rem;
+  background: url('../images/img_airplane.png') no-repeat center/100% 100%;
+}
+.platform-info .platform .platform-text .txt-box .tit {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.4rem;
+  letter-spacing: -0.02rem;
+  text-align: left;
+}
+.platform-info .platform .platform-text .txt-box .txt-logo {
+  display: inline-block;
+  width: 14rem;
+  height: 3rem;
+}
+.platform-info .platform .platform-text .txt-box .txt { 
+  display: inline-block;
+  margin: 1.4rem 0 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.7rem;
+  letter-spacing: -0.02rem;
+  text-align: left;  
+  color: #6F8394;
+} 
+.platform-info .platform .img-wrap{
+  width: 23.6rem;
+  height: 41.6rem;
+  margin-left: 4.65rem;
+}
+.platform-info .platform.img-lr .txt-box{
+  margin-left: 1.7rem;
+  min-width: 14.6rem;
+}
+.platform-info .platform.img-lr .img-wrap{
+  margin-left: 0;
+}
 .introduce-info {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 83.27%, #fff 100%),
     linear-gradient(180deg, rgba(255, 255, 255, 0) 74.58%, #fff 100%),
@@ -289,7 +354,6 @@ body {
 .technologies-info .info-list + .info-list {
   margin: 2.2rem 0 0 0;
 }
-
 .footer {
   background: #0e2e78;
 }
@@ -322,6 +386,11 @@ body {
   }
   .convenience-info .solution-box {
     flex-direction: column;
+  }
+  .platform-info .platform .img-wrap{
+    width: 18.6rem;
+    height: 38.6rem;
+    margin-left: 4.65rem;
   }
   .introduce-info .process {
     width: 100%;
@@ -448,7 +517,55 @@ body {
     margin: 7px 0 0;
     line-height: 1.3rem;
   }
-
+  .platform-info .platform {
+    flex-direction: column;
+    width: 100%;
+    margin: 2.5rem 0;
+  }
+  .platform-info .platform + .platform {
+    margin: 6rem auto 0;
+  }
+  .platform-info .platform .platform-text{
+    width: 100%;
+    padding: 0 1.6rem;
+  }
+  .platform-info .platform .platform-text .txt-box{
+    padding: 10px 0 0;
+  }
+  .platform-info .platform .platform-text .txt-box.icon:after {
+    top: -1rem;
+    right: 1.5rem;
+  }
+  .platform-info .platform .platform-text .txt-box .tit {
+    font-size: 1.6rem;
+  }
+  .platform-info .platform .platform-text .txt-box .txt-logo {
+    width: 7.65rem;
+    height: 1.65rem;
+  }
+  .platform-info .platform .platform-text .txt-box .txt { 
+    display: block;
+    font-size: 16px;
+    line-height: 1.4rem;
+  } 
+  .platform-info .platform .img-wrap{
+    width: 11.8rem;
+    height: 24.8rem;
+    margin: 17px auto 0;
+  }
+  .platform-info .platform.img-lr .platform-text .txt-box .txt { 
+    margin: 10px 0 0;
+  } 
+  .platform-info .platform.img-lr .txt-box{
+    position: relative;
+    order: 1;
+    margin-left: 0;
+    width: 12.8rem;
+  }
+  .platform-info .platform.img-lr .img-wrap{
+    order: 2;
+    margin: 2.2rem auto 0;
+  }
   .introduce-info .copy01 {
     margin: 16px 0 0;
   }
