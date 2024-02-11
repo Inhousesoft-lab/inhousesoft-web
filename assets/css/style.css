@@ -10,7 +10,7 @@ body {
   position: relative;
 }
 .inner {
-  position: relative; 
+  position: relative;
   max-width: 1440px;
   margin: 0 auto;
   padding: 6rem 9rem;
@@ -66,7 +66,7 @@ body {
 }
 /* color */
 .cr-blue {
-  color: #5DB7F7;
+  color: #5db7f7;
 }
 /* button */
 .btn-indigo {
@@ -75,8 +75,8 @@ body {
 .subin-wrap {
   max-width: 1440px;
   margin: 0 auto;
-  background: #F6F8FA;
-  box-shadow: 0px 16px 48px 0px #E2E8ED;
+  background: #f6f8fa;
+  box-shadow: 0px 16px 48px 0px #e2e8ed;
 }
 .subin-wrap .visual-info {
   position: relative;
@@ -222,21 +222,21 @@ body {
 .platform-info .platform + .platform {
   margin: 10rem auto 0;
 }
-.platform-info .platform .platform-text{
+.platform-info .platform .platform-text {
   position: relative;
   width: 14.6rem;
 }
-.platform-info .platform .platform-text .txt-box{
+.platform-info .platform .platform-text .txt-box {
   padding: 7.5rem 0 0;
 }
 .platform-info .platform .platform-text .txt-box.icon:after {
-  content:'';
+  content: "";
   position: absolute;
   top: 5rem;
   right: -2rem;
   width: 4rem;
   height: 2.4rem;
-  background: url('../images/img_airplane.png') no-repeat center/100% 100%;
+  background: url("../images/img_airplane.png") no-repeat center/100% 100%;
 }
 .platform-info .platform .platform-text .txt-box .tit {
   font-size: 2.4rem;
@@ -250,26 +250,26 @@ body {
   width: 14rem;
   height: 3rem;
 }
-.platform-info .platform .platform-text .txt-box .txt { 
+.platform-info .platform .platform-text .txt-box .txt {
   display: inline-block;
   margin: 1.4rem 0 0;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.7rem;
   letter-spacing: -0.02rem;
-  text-align: left;  
-  color: #6F8394;
-} 
-.platform-info .platform .img-wrap{
+  text-align: left;
+  color: #6f8394;
+}
+.platform-info .platform .img-wrap {
   width: 23.6rem;
   height: 41.6rem;
   margin-left: 4.65rem;
 }
-.platform-info .platform.img-lr .txt-box{
+.platform-info .platform.img-lr .txt-box {
   margin-left: 1.7rem;
   min-width: 14.6rem;
 }
-.platform-info .platform.img-lr .img-wrap{
+.platform-info .platform.img-lr .img-wrap {
   margin-left: 0;
 }
 .introduce-info {
@@ -387,7 +387,7 @@ body {
   .convenience-info .solution-box {
     flex-direction: column;
   }
-  .platform-info .platform .img-wrap{
+  .platform-info .platform .img-wrap {
     width: 18.6rem;
     height: 38.6rem;
     margin-left: 4.65rem;
@@ -504,10 +504,12 @@ body {
     height: 2rem;
   }
   .convenience-info .solution-box [class*="info"][class*="2"]:before {
-    background: url("../images/icons/prototype_icon_m.png") no-repeat center;background-size: 40px 40px;
+    background: url("../images/icons/prototype_icon_m.png") no-repeat center;
+    background-size: 40px 40px;
   }
   .convenience-info .solution-box [class*="info"][class*="3"]:before {
-    background: url("../images/icons/service_icon_m.png") no-repeat center;background-size: 40px 40px;
+    background: url("../images/icons/service_icon_m.png") no-repeat center;
+    background-size: 40px 40px;
   }
   .convenience-info .solution-box [class*="info"] .tit {
     margin: 5px 0 0;
@@ -525,11 +527,11 @@ body {
   .platform-info .platform + .platform {
     margin: 6rem auto 0;
   }
-  .platform-info .platform .platform-text{
+  .platform-info .platform .platform-text {
     width: 100%;
     padding: 0 1.6rem;
   }
-  .platform-info .platform .platform-text .txt-box{
+  .platform-info .platform .platform-text .txt-box {
     padding: 10px 0 0;
   }
   .platform-info .platform .platform-text .txt-box.icon:after {
@@ -543,26 +545,26 @@ body {
     width: 7.65rem;
     height: 1.65rem;
   }
-  .platform-info .platform .platform-text .txt-box .txt { 
+  .platform-info .platform .platform-text .txt-box .txt {
     display: block;
     font-size: 16px;
     line-height: 1.4rem;
-  } 
-  .platform-info .platform .img-wrap{
+  }
+  .platform-info .platform .img-wrap {
     width: 11.8rem;
     height: 24.8rem;
     margin: 17px auto 0;
   }
-  .platform-info .platform.img-lr .platform-text .txt-box .txt { 
+  .platform-info .platform.img-lr .platform-text .txt-box .txt {
     margin: 10px 0 0;
-  } 
-  .platform-info .platform.img-lr .txt-box{
+  }
+  .platform-info .platform.img-lr .txt-box {
     position: relative;
     order: 1;
     margin-left: 0;
     width: 12.8rem;
   }
-  .platform-info .platform.img-lr .img-wrap{
+  .platform-info .platform.img-lr .img-wrap {
     order: 2;
     margin: 2.2rem auto 0;
   }
