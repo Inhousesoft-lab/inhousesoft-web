@@ -1,4 +1,15 @@
+FROM node:20-alpine AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
 FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-COPY assets /usr/share/nginx/html/assets
-COPY public /usr/share/nginx/html/public
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
