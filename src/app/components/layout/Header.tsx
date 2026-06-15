@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import logoSvg from "@/assets/images/img_logo_inhousesoft.svg";
+import logoSvg from "@/assets/images/img_logo_w.svg";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +46,7 @@ export default function Header() {
             className="cursor-pointer flex items-center"
             onClick={() => scrollToSection("home")}
           >
-            <img src={logoSvg} alt="CMJC" />
+            <img src={logoSvg} alt="inhousesoft" width={160} />
           </motion.div>
 
           {/* Desktop Menu */}

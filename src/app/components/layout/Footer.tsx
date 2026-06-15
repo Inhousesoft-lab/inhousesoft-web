@@ -1,4 +1,4 @@
-import imgLogoFooter from "@/assets/images/footer_logo.svg";
+import imgLogoFooter from "@/assets/images/img_icon_w.svg";
 
 export default function Footer() {
   return (
