@@ -1,105 +1,169 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import { ImageWithFallback } from "../imageFallback/ImageWithFallback";
 import { Target, FileText, TrendingUp } from "lucide-react";
+
+const services = [
+  {
+    icon: Target,
+    title: "공고 분석 · 입찰 전략",
+    description: "어떤 공고에 들어가야 하는지부터 시작합니다. 조건, 배점, 경쟁사까지 보고 전략을 세웁니다.",
+  },
+  {
+    icon: FileText,
+    title: "제안서 작성 지원",
+    description: "평가위원이 원하는 방향으로 제안서를 구성합니다. 목차·내용·디자인 모두 함께합니다.",
+  },
+  {
+    icon: TrendingUp,
+    title: "가격 전략 · 사후 관리",
+    description: "낙찰 가능한 가격을 데이터 기반으로 설계하고, 결과에 따른 개선 방향도 안내합니다.",
+  },
+];
+
+const strengths = [
+  "나라장터 · G2B 공고 모니터링",
+  "배점 기준 심층 분석",
+  "경쟁사 동향 파악",
+  "제안서 목차 · 내용 · 디자인",
+  "투찰 가격 데이터 설계",
+  "결과 분석 및 개선 제안",
+];
 
 export default function BiddingSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  const services = [
-    {
-      icon: Target,
-      title: "입찰 전략 및 공고 분석",
-      description: "공고 조건, 평가 기준, 경쟁 환경을 종합 분석하여 참여 여부 판단 및 최적의 입찰 전략을 수립",
-    },
-    {
-      icon: FileText,
-      title: "제안서 및 입찰 수행 지원",
-      description: "평가 기준에 맞춘 제안서 작성과 제출 프로세스를 지원하여 완성도 높은 입찰 수행을 보장",
-    },
-    {
-      icon: TrendingUp,
-      title: "가격 전략 및 사후 관리",
-      description: "낙찰 가능성을 고려한 투찰 가격 설계와 함께 결과 분석 및 개선 전략까지 제공",
-    },
-  ];
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="bidding-section" ref={ref} className="min-h-screen flex items-center py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section
+      id="bidding-section"
+      ref={ref}
+      className="relative bg-[#f8fafc] py-24 lg:py-32 overflow-hidden"
+    >
+      {/* Left accent stripe */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#2563eb] via-[#0E2E78] to-transparent" />
+
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        {/* Section label */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+          initial={{ opacity: 0, x: -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="mb-6"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#0E2E78] mb-6">
-            공공입찰 컨설팅
-          </h2>
-          <p className="text-xl text-[#6f8394] max-w-3xl">
-            반복적이고 복잡한 입찰 업무를 체계적으로 관리하여 수주 성공률을 높이고 리스크를 최소화합니다
-          </p>
+          <span className="text-[#2563eb] text-[12px] font-semibold tracking-[0.25em] uppercase">
+            Public Bidding Consulting
+          </span>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <div>
-              <h3 className="text-2xl font-bold text-[#0E2E78] mb-4">
-                체계적인 입찰 전략 지원
-              </h3>
-              <p className="text-[#6f8394] leading-relaxed mb-4">
-                공공입찰 전 과정(분석–준비–제출–관리)을 전문적으로 지원하여 기업의 안정적인 수주를 돕습니다.
-                입찰 공고 분석부터 제안서 작성, 일정 관리, 사후 대응까지 전 단계에서 전략적 컨설팅을 제공합니다.
-              </p>
-              <p className="text-[#6f8394] leading-relaxed">
-                경험 기반의 데이터와 노하우를 통해 불필요한 시행착오를 줄이고, 경쟁력 있는 입찰 참여가 가능하도록 지원합니다.
-              </p>
-            </div>
-          </motion.div>
+        {/* Main layout */}
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-start">
+          {/* Left: Heading + intro */}
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-[40px] lg:text-[56px] font-bold text-[#0f172a] leading-[1.15] tracking-tight mb-6 break-keep"
+            >
+              공공입찰
+              <br />
+              <span className="text-[#0E2E78]">컨설팅 솔루션</span>
+            </motion.h2>
 
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-[16px] text-[#4b5563] leading-relaxed mb-8 break-keep"
+            >
+              혼자 하면 오래 걸리고 빠뜨리기 쉬운 것들이 있습니다.
+              공고 분석부터 제출까지, 익숙한 사람이 옆에서 함께하면 달라집니다.
+            </motion.p>
+
+            {/* Strengths list */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10"
+            >
+              {strengths.map((s, i) => (
+                <div key={i} className="flex items-start gap-2.5">
+                  <span className="text-[#2563eb] text-[18px] leading-none mt-[-2px] shrink-0">•</span>
+                  <span className="text-[15px] text-[#374151] leading-relaxed">{s}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="px-8 py-4 bg-[#0f172a] text-white text-[14px] font-bold hover:bg-[#0E2E78] transition-colors"
+              >
+                입찰 컨설팅 문의하기
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right: Service cards */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="space-y-4"
           >
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop"
-                alt="공공입찰 컨설팅"
-                className="w-full h-full object-cover"
+            {/* Image */}
+            <div className="relative overflow-hidden mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop&auto=format"
+                alt="공공입찰 솔루션"
+                className="w-full h-56 object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E2E78]/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="text-white/60 text-[12px] font-medium tracking-wide mb-1 uppercase">
+                  인하우스소프트
+                </div>
+                <div className="text-white text-[20px] font-bold">
+                  수주 성공률을 높이는 전략적 파트너
+                </div>
+              </div>
             </div>
+
+            {services.map((service, i) => (
+              <div
+                key={i}
+                className="bg-white border border-gray-100 p-6 hover:border-[#0E2E78]/30 hover:shadow-sm transition-all group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-[#EFF4FF] flex items-center justify-center shrink-0 group-hover:bg-[#0E2E78] transition-colors">
+                    <service.icon
+                      className="text-[#0E2E78] group-hover:text-white transition-colors"
+                      size={18}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-[15px] font-bold text-[#0f172a] mb-2">
+                      {service.title}
+                    </h4>
+                    <p className="text-[13px] text-gray-500 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
-
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="p-6 bg-white border border-[#e5e7eb] rounded-lg hover:border-[#2563eb] transition-all shadow-sm"
-            >
-              <div className="w-12 h-12 bg-[#2563eb]/10 rounded-lg flex items-center justify-center mb-4">
-                <service.icon className="text-[#2563eb]" size={24} />
-              </div>
-              <h4 className="text-lg font-semibold text-[#0E2E78] mb-2">
-                {service.title}
-              </h4>
-              <p className="text-sm text-[#6f8394]">{service.description}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

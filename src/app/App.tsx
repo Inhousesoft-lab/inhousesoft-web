@@ -10,30 +10,16 @@ import Contact from "./components/sections/Contact";
 
 export default function App() {
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth scroll-pt-20">
+    <div className="min-h-screen bg-white">
       <Header />
-      <div className="snap-start snap-always bg-white">
-        <HeroSlider />
-      </div>
-      <div className="snap-start snap-always min-h-screen flex flex-col justify-start lg:justify-center bg-white">
-        <div className="p-[30px]">
-          <WhyIS />
-          <Solutions />
-        </div>
-      </div>
-      <div className="snap-start snap-always">
-        <BiddingSection />
-      </div>
-      <div className="snap-start snap-always">
-        <SISmSection />
-      </div>
-      <div className="snap-start snap-always">
-        <RPASection />
-      </div>
-      <div className="snap-start snap-always">
-        <Contact />
-        <Footer />
-      </div>
+      <HeroSlider />
+      <WhyIS />
+      <Solutions />
+      <BiddingSection />
+      <SISmSection />
+      <RPASection />
+      <Contact />
+      <Footer />
     </div>
   );
 }

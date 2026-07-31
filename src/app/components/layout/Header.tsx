@@ -3,15 +3,18 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import logoSvg from "@/assets/images/img_logo_w.svg";
 
+const navItems = [
+  { id: "about", label: "COMPANY" },
+  { id: "solutions", label: "SOLUTIONS" },
+  { id: "contact", label: "CONTACT" },
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -24,32 +27,26 @@ export default function Header() {
     }
   };
 
-  const navItems = [
-    { id: "about", label: "COMPANY" },
-    { id: "solutions", label: "SOLUTIONS" },
-    { id: "contact", label: "CONTACT" },
-  ];
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#0E2E78] shadow-lg"
-          : "bg-[#0E2E78]/95 backdrop-blur-sm"
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0E2E78] ${
+        isScrolled ? "shadow-[0_2px_20px_rgba(14,46,120,0.4)]" : ""
       }`}
     >
+      {/* Top accent line */}
+      <div className="h-[3px] bg-gradient-to-r from-[#2563eb] via-[#60a5fa] to-[#0E2E78]" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <motion.div
-            className="cursor-pointer flex items-center"
-            onClick={() => scrollToSection("home")}
-          >
-            <img src={logoSvg} alt="inhousesoft" width={160} />
-          </motion.div>
+          {/* Logo */}
+          <div className="cursor-pointer flex items-center" onClick={() => scrollToSection("home")}>
+            <img src={logoSvg} alt="inhousesoft" width="160" />
+          </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex space-x-12">
             {navItems.map((item) => (
               <button
@@ -62,7 +59,7 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile toggle */}
           <button
             className="lg:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -79,14 +76,14 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#0E2E78] border-t border-white/10"
+            className="lg:hidden bg-[#071d52] border-t border-white/10"
           >
-            <div className="px-4 py-4 space-y-3">
+            <div className="px-6 py-4 space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
+                  className="block w-full text-left px-4 py-3 text-sm font-medium tracking-wide text-white/90 hover:text-white hover:bg-white/5 transition-colors"
                 >
                   {item.label}
                 </button>
@@ -95,6 +92,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </motion.header>
   );
 }
