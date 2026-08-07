@@ -1,0 +1,89 @@
+.section {
+  min-height: 731px;
+  background: var(--color-navy);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.contact { position: relative; height: 438px; overflow: hidden; }
+.background, .overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.background { object-fit: cover; object-position: center; }
+.overlay { background: linear-gradient(180deg, rgba(4, 16, 63, .7), rgba(1, 50, 101, .9)); }
+.contactInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 512px;
+  margin-inline: auto;
+  padding: 89px 16px 0;
+  color: var(--color-white);
+}
+.copy, .email { display: flex; flex-direction: column; align-items: flex-start; }
+.copy { gap: 14px; }
+.eyebrow, .copy h2, .lead, .email { font-weight: 600; line-height: 1.5; letter-spacing: -0.02em; }
+.eyebrow { font-size: 14px; }
+.copy h2 { margin: 0; width: min(100%, 380px); font-size: 24px; font-weight: 600; }
+.lead { font-size: 14px; text-wrap: pretty; }
+.email { width: 100%; gap: 14px; margin-top: 32px; font-size: 14px; }
+.email a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 38px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--color-white);
+  color: var(--color-black);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.footer { height: 293px; background: var(--color-navy); color: var(--color-white); }
+.footerInner { width: 100%; max-width: 512px; margin-inline: auto; padding: 69px 16px 0; }
+.footer img { width: 160px; height: auto; }
+.companyInfo { display: flex; flex-direction: column; margin-top: 32px; font-size: 12px; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; }
+
+@media (min-width: 900px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .contact {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+  }
+  .contactInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(120px, 16vw, 320px);
+    max-width: var(--content-max);
+    height: 100%;
+    padding: 0 var(--page-gutter);
+  }
+  .copy { gap: min(18px, 1.19vw); }
+  .eyebrow { font-size: min(16px, 1.058vw); }
+  .copy h2 { width: min(650px, 42.989vw); font-size: min(40px, 2.646vw); }
+  .lead { font-size: min(24px, 1.587vw); }
+  .email { width: min(251px, 16.601vw); gap: min(18px, 1.19vw); margin-top: 0; font-size: min(24px, 1.587vw); }
+  .email a { height: min(44px, 2.91vw); font-size: min(16px, 1.058vw); }
+  .footer {
+    flex: 0 0 clamp(180px, 20dvh, 220px);
+    height: auto;
+  }
+  .footerInner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 40px;
+    max-width: var(--content-max);
+    height: 100%;
+    padding: 0 var(--page-gutter);
+  }
+  .footer img { width: min(160px, 10.582vw); height: auto; }
+  .companyInfo { margin-top: 0; font-size: min(14px, .926vw); }
+}

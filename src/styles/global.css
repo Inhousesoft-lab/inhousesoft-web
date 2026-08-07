@@ -1,0 +1,102 @@
+:root {
+  /* 디자인 기준: 1512 x 982 (MacBook Pro 14") */
+  --page-gutter: clamp(24px, 10.32vw, 156px); /* 156 / 1512 */
+  --content-max: 1620px;
+  --section-bottom: clamp(40px, 9.17vh, 90px); /* 982 - 524 - 368 */
+
+  /* 시안은 95px이지만 너무 두꺼워 72px로 조정 */
+  --nav-height: 72px;
+  /* 모바일 시안 기준 */
+  --nav-height-mobile: 70px;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-navy: #00285c;
+  --color-surface: #f8f8f8;
+  --color-accent: #007aff;
+  --hero-overlay-from: rgba(4, 16, 63, 0.7);
+  --hero-overlay-to: rgba(1, 50, 101, 0.9);
+
+  --radius-button: 12px;
+
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-black);
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* 섹션 진입 시 텍스트·카드 UI가 아래에서 위로 살짝 나타난다. */
+[data-reveal] {
+  opacity: 0;
+  translate: 0 14px;
+  transition:
+    opacity 1200ms cubic-bezier(0.22, 1, 0.36, 1),
+    translate 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, translate;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,134 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-navy);
+}
+
+.bar {
+  width: min(100%, var(--content-max));
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--page-gutter);
+  margin-inline: auto;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 41px;
+}
+
+.navLink {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--color-white);
+  transition: opacity 200ms ease;
+}
+
+.navLink:hover {
+  opacity: 0.7;
+}
+
+.navLink:focus-visible,
+.logoLink:focus-visible,
+.menuButton:focus-visible,
+.mobileNavLink:focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* 햄버거 — 모바일에서만 노출 */
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.menuIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-white);
+}
+
+.mobileNav {
+  display: none;
+}
+
+/* ── 모바일 (시안 402px 기준) ─────────────── */
+@media (max-width: 899px) {
+  .bar {
+    height: var(--nav-height-mobile);
+    padding: 0 16px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    padding: 0 16px;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      max-height 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms ease,
+      opacity 220ms ease,
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 320ms;
+  }
+
+  .mobileNavOpen {
+    max-height: 180px;
+    padding: 8px 16px 20px;
+    border-top-color: rgba(255, 255, 255, 0.15);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .mobileNavLink {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--color-white);
+  }
+}

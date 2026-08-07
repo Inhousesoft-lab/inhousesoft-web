@@ -1,0 +1,213 @@
+.why {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--color-surface);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: calc(var(--nav-height) + 40px) var(--page-gutter) 80px;
+}
+
+/*
+ * 데스크탑에서만 콘텐츠를 섹션 안에서 세로 가운데 정렬.
+ * (태블릿 이하는 콘텐츠가 화면보다 길어 가운데 정렬이 의미 없다.)
+ */
+@media (min-width: 900px) {
+  .why {
+    display: flex;
+    align-items: center;
+    padding: calc(var(--nav-height) + 24px) 0 24px;
+  }
+
+  .inner {
+    padding: 0 var(--page-gutter);
+  }
+}
+
+.line {
+  display: block;
+}
+
+/*
+ * ── 헤드 ───────────────────────────────────
+ * 헤드도 카드와 같은 원리로 화면 폭에 비례해 줄어든다.
+ * min() 안의 vw 값은 "시안값 ÷ 1512 × 100" 이라, 1512px 에서 시안 그대로다.
+ */
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: min(40px, 2.646vw);
+}
+
+.headLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: min(18px, 1.19vw);
+}
+
+.eyebrow {
+  font-size: min(16px, 1.058vw);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+}
+
+.title {
+  font-size: min(40px, 2.646vw);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+.lead {
+  /* 시안 기준 좌측 eyebrow(top 147)보다 45px 아래 */
+  margin-top: min(45px, 2.976vw);
+  width: min(467px, 30.886vw);
+  flex: none;
+  font-size: min(24px, 1.587vw);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+/* ── 카드 ───────────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: min(22px, 1.455vw);
+  margin: min(59px, 3.902vw) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * 카드 안의 글자는 카드 폭에 비례해 줄어든다.
+ * 시안(데스크탑 385px)의 비율을 유지하되, 카드가 시안보다 커지면
+ * min() 이 시안 크기에서 멈춘다.
+ */
+.card {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0) 35.53%,
+    rgba(0, 0, 0, 0.5) 69.2%
+  );
+}
+
+/*
+ * 카드 내부 여백은 데스크탑(385px)·모바일(370px) 시안 모두 카드 크기 대비
+ * 같은 비율이라 % 로 잡는다. (라벨 42/385 = 40.36/370 = 10.91% …)
+ */
+.cardLabel {
+  position: absolute;
+  top: 10.91%;
+  left: 9.09%;
+  right: 9.09%;
+  /* 16 / 385 */
+  font-size: min(16px, 4.156cqw);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--color-white);
+}
+
+.cardBody {
+  position: absolute;
+  bottom: 9.09%;
+  /* 시안상 본문 텍스트 박스는 라벨보다 살짝 왼쪽에서 시작 */
+  left: 8.05%;
+  width: 81.56%;
+  /* 24 / 385 */
+  font-size: min(24px, 6.234cqw);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+/* ── 모바일 (시안 402px 기준) ─────────────── */
+@media (max-width: 899px) {
+  .inner {
+    /* 시안 top 69px — 고정 헤더(70px) 바로 아래 */
+    padding: 69px 16px 80px;
+    /*
+     * 모바일 시안은 402px 기준이라, 경계 근처(~899px)에서 그대로 늘리면
+     * 한 줄이 지나치게 길어진다. 시안 비율을 유지하도록 폭을 제한하고 가운데 정렬.
+     * 시안 폭(402px)에서는 화면이 이보다 좁아 제한에 걸리지 않는다.
+     */
+    max-width: 512px;
+    margin-inline: auto;
+  }
+
+  .head {
+    flex-direction: column;
+  }
+
+  .head,
+  .headLeft {
+    gap: 14px;
+  }
+
+  .lead {
+    margin-top: 0;
+    width: auto;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 40px;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  /* 모바일 시안은 카드 370px 기준 */
+  .cardLabel {
+    font-size: min(14px, 3.784cqw);
+  }
+
+  .cardBody {
+    font-size: min(20px, 5.405cqw);
+    /* 시안 31.43/370 */
+    bottom: 8.49%;
+  }
+}
