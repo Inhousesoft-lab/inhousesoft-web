@@ -3,24 +3,6 @@
   publish = "dist"
 
 [[redirects]]
-  from = "http://inhousesoft.com/*"
-  to = "https://www.inhousesoft.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://inhousesoft.com/*"
-  to = "https://www.inhousesoft.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.inhousesoft.com/*"
-  to = "https://www.inhousesoft.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
